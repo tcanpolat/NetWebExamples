@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout"; // Sadece bu viewde layout kullan.
+}
+
+<div class="text-center">
+    <h1 class="display-4">Home page</h1>
+</div>
+<!-- partial view ekleme -->
+@Html.Partial("_CategoryList")
