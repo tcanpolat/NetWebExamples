@@ -17,6 +17,24 @@ namespace _05_Html_Helpers.Controllers
             return View(user); // modeli view e yollama
         }
 
+        [HttpPost]
+        public IActionResult Submit(User user)
+        {
+            var test = ModelState.IsValid;
+            if (ModelState.IsValid)
+            {
+                ViewBag.Message = $"Name: {user.Name} - Age: {user.Age} - Gender: {user.Gender} - Country: {user.Country}";
+                return View("Result");
+            }
+
+            return View("Index");
+        }
+
+        public IActionResult Result()
+        {
+            return View();
+        }
+
         public IEnumerable<SelectListItem> GetCountries()
         {
             return new SelectListItem[]
