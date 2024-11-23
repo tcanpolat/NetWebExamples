@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_View_Layout_PartialView"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_Render_Section_Nested", "08_Render_Section_Nested\08_Render_Section_Nested.csproj", "{29D39226-6C53-4EA1-8D74-46883074ED18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_ModelsBinding", "09_ModelsBinding\09_ModelsBinding.csproj", "{E9A9BEF8-A260-460E-9880-B6E8869411D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{29D39226-6C53-4EA1-8D74-46883074ED18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D39226-6C53-4EA1-8D74-46883074ED18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29D39226-6C53-4EA1-8D74-46883074ED18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A9BEF8-A260-460E-9880-B6E8869411D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A9BEF8-A260-460E-9880-B6E8869411D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A9BEF8-A260-460E-9880-B6E8869411D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A9BEF8-A260-460E-9880-B6E8869411D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
