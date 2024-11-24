@@ -13,13 +13,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04_ViewData_ViewBag_TempDat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_Html_Helpers", "05_Html_Helpers\05_Html_Helpers.csproj", "{FFB9A40A-7285-4147-AD49-781514AA4721}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_Custom_Helpers", "06_Custom_Helpers\06_Custom_Helpers.csproj", "{C9BB5874-2D61-4EA3-A17A-BFA598C0A56D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_Custom_Helpers", "06_Custom_Helpers\06_Custom_Helpers.csproj", "{C9BB5874-2D61-4EA3-A17A-BFA598C0A56D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_View_Layout_PartialView", "07_View_Layout_PartialView\07_View_Layout_PartialView.csproj", "{891019CE-DC00-43EC-A541-34473357FC6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_View_Layout_PartialView", "07_View_Layout_PartialView\07_View_Layout_PartialView.csproj", "{891019CE-DC00-43EC-A541-34473357FC6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_Render_Section_Nested", "08_Render_Section_Nested\08_Render_Section_Nested.csproj", "{29D39226-6C53-4EA1-8D74-46883074ED18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "08_Render_Section_Nested", "08_Render_Section_Nested\08_Render_Section_Nested.csproj", "{29D39226-6C53-4EA1-8D74-46883074ED18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_ModelsBinding", "09_ModelsBinding\09_ModelsBinding.csproj", "{E9A9BEF8-A260-460E-9880-B6E8869411D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "09_ModelsBinding", "09_ModelsBinding\09_ModelsBinding.csproj", "{E9A9BEF8-A260-460E-9880-B6E8869411D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_FluentValidation", "10_FluentValidation\10_FluentValidation.csproj", "{00151B07-D6E6-4DBF-8B81-256295E51F9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11_AutoMapper", "11_AutoMapper\11_AutoMapper.csproj", "{96274E67-A9BE-4A33-A2B2-4A3C6BBA76DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_Dependecy_Injection", "12_Dependecy_Injection\12_Dependecy_Injection.csproj", "{866D81C9-2AEF-4B8A-97EF-B993C149DAFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{E9A9BEF8-A260-460E-9880-B6E8869411D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9A9BEF8-A260-460E-9880-B6E8869411D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9A9BEF8-A260-460E-9880-B6E8869411D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00151B07-D6E6-4DBF-8B81-256295E51F9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00151B07-D6E6-4DBF-8B81-256295E51F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00151B07-D6E6-4DBF-8B81-256295E51F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00151B07-D6E6-4DBF-8B81-256295E51F9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96274E67-A9BE-4A33-A2B2-4A3C6BBA76DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96274E67-A9BE-4A33-A2B2-4A3C6BBA76DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96274E67-A9BE-4A33-A2B2-4A3C6BBA76DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96274E67-A9BE-4A33-A2B2-4A3C6BBA76DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866D81C9-2AEF-4B8A-97EF-B993C149DAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866D81C9-2AEF-4B8A-97EF-B993C149DAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866D81C9-2AEF-4B8A-97EF-B993C149DAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866D81C9-2AEF-4B8A-97EF-B993C149DAFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
