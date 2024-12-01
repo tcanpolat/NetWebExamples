@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ActionFilter>();
 builder.Services.AddScoped<AuthorizationFilter>();
+builder.Services.AddScoped<ExceptionFilter>();
 
 
 var app = builder.Build();

@@ -22,6 +22,11 @@ namespace _15_Filter_Operation.Controllers
         {
             return View();
         }
+        [ServiceFilter(typeof(ExceptionFilter))]
+        public IActionResult SpecialAction()
+        {
+            throw new Exception("Bu bir test hatasýdýr.");
+        }
 
         
 
