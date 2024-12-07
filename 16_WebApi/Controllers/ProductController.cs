@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace _16_WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -16,7 +16,7 @@ namespace _16_WebApi.Controllers
             _context = context;
         }
 
-        // Get : api/Products
+        // Get : api/Products/GetProducts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -28,7 +28,7 @@ namespace _16_WebApi.Controllers
             return NotFound();
         }
 
-        // Get : api/Products/2
+        // Get : api/Products/GetProduct/2
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -47,10 +47,67 @@ namespace _16_WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
+
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
-        } 
+        }
+
+        // PUT : api/Products/PutProducts
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutProduct(int id, Product product)
+        {
+            if(id != product.Id)
+            {
+                return NoContent();
+            }
+
+            _context.Entry(product).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProductExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+
+                }
+
+            }
+
+            return Ok();
+
+        }
+
+
+        // Delete : api/Products/DeleteProduct/id
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if(product == null)
+            {
+                return NotFound();
+            }
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        private bool ProductExists(int id)
+        {
+            return _context.Products.Any(p => p.Id == id);
+        }
     }
 }
