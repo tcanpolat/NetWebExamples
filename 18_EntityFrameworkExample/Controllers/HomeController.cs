@@ -1,5 +1,8 @@
 using _18_EntityFrameworkExample.Data;
+using _18_EntityFrameworkExample.Extensions;
 using _18_EntityFrameworkExample.Models;
+using _18_EntityFrameworkExample.ViewModels;
+using EFCore.BulkExtensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -174,5 +177,98 @@ namespace _18_EntityFrameworkExample.Controllers
             return View(studentCourses);
         }
 
+        public IActionResult GetStudentsByDepartment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult GetStudentsByDepartment(string department)
+        {
+            var students = new List<Student>();
+            try
+            {
+                students = _context.Students
+                          .FromSqlInterpolated($"EXEC GetStudentsByDepartment {department}")
+                          .ToList();
+            }
+            catch (Exception)
+            {
+
+                students = new List<Student>();
+            }
+          
+
+            ViewData["Students"] = students;
+            return View();
+        }
+
+        // Öðrencileri bölümlerine göre gruplama
+        public IActionResult GroupByDepartment()
+        {
+           var groupedStundets =  _context.Students
+                .GroupBy(s => s.Department)
+                .Select(g => new GroupedStudentViewModel
+                {
+                    Department = g.Key,
+                    Students = g.ToList()
+                })
+                .ToList();
+
+            return View(groupedStundets);
+        }
+
+        [HttpPost("Transaction")]
+        public IActionResult AddStudentsWithTransaction([FromBody] List<Student> students)
+        {
+            using var transaction = _context.Database.BeginTransaction();
+
+            try
+            {
+                _context.Students.AddRange(students);
+                _context.SaveChanges();
+                transaction.Commit();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+                return StatusCode(500,"Öðrenciler eklenirken bir hata oluþtu");
+            }
+
+            return Ok();
+        }
+
+
+        public IActionResult RawSql()
+        {
+            var students = _context.Students
+                            .FromSqlRaw("SELECT * FROM Students Where Age > 18")
+                            .ToList();
+
+            return View("Index",students);
+        }
+
+        public IActionResult CustomExtensionMethod()
+        {
+            var students = _context.Students.ToList();
+
+            var groupedStudentByAge = students.GroupByAgeRange();
+
+            return View(groupedStudentByAge);
+        }
+
+        public IActionResult BulkInsert()
+        {
+            var students = new List<Student>()
+            {
+                new Student { Name = "Bulk 1", Age = 20, Department = "Bulk Bölüm1" },
+                new Student { Name = "Bulk 2", Age = 22, Department = "Bulk Bölüm2" }
+
+            };
+
+            _context.BulkInsert(students);
+            return View("Index", students);
+
+        }
     }
 }

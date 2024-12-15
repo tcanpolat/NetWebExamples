@@ -5,6 +5,9 @@
 }
 
 <div class="text-center">
+    <button class="btn btn-primary m-2" id="addStudentsWithTransaction">Transaction ile Öğrenci Ekle</button>
+    <a class="btn btn-primary m-2" asp-action="RawSql">Raw Sql</a>
+    <a class="btn btn-primary m-2" asp-action="BulkInsert">Bulk Insert</a>
 
 </div>
 <table class="table">
@@ -47,3 +50,34 @@
     </tbody>
     
 </table>
+
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#addStudentsWithTransaction").click(function(){
+                console.log("test");
+                var students = [
+                    { Name: "Test1", Age:26 , Department:"Bilgisayar Mühendisliği"},
+                    { Name: "Test2", Age:20 , Department:"Elektrik Mühendisliği"}
+                ]
+
+                $.ajax({
+                    url: '@Url.Action("AddStudentsWithTransaction", "Home")',// Aksiyonun url i
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(students),
+                    success: function(result){
+                        alert("Öğrenciler başarıyla eklendi"),
+                        location.reload()
+                    },
+                    error: function(error){
+                        console.log(error)
+                        alert(error.responseText)
+                    }
+                })
+            })
+        })
+    </script>
+
+}
