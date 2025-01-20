@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Dependency Injection LifeCycle Test";
+}
+
+<h1>Dependency Injection LifeCycle Test</h1>
+
+<h2>Transient</h2>
+<p>İlk Değer: @ViewBag.Transient1</p>
+<p>İkinci Değer: @ViewBag.Transient2</p>
+<p><strong>Açıklama:</strong> Transient her çağrıldığında farklı bir değer üretir.</p>
+
+<h2>Scoped</h2>
+<p>İlk Değer: @ViewBag.Scoped1</p>
+<p>İkinci Değer: @ViewBag.Scoped2</p>
+<p><strong>Açıklama:</strong> Scoped aynı HTTP isteği boyunca aynı değeri kullanır.</p>
+
+<h2>Singleton</h2>
+<p>İlk Değer: @ViewBag.Singleton1</p>
+<p>İkinci Değer: @ViewBag.Singleton2</p>
+<p><strong>Açıklama:</strong> Singleton uygulama boyunca aynı değeri kullanır.</p>
+
+<hr />
+
+<a href="@Url.Action("Index", "Home")">Yeni İstek Gönder</a>
